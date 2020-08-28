@@ -3,7 +3,7 @@
     Layout = null;
 }
 
-@using (Html.BeginForm("AddOrEdit", "Employee", FormMethod.Post, new {onsubmit = "return SubmitForm(this)" }))
+@using (Html.BeginForm("AddOrEdit", "Employee", FormMethod.Post, new { onsubmit = "return SubmitForm(this)" }))
 {
     @Html.HiddenFor(model => model.TicketID)
     <div class="form-group">
@@ -11,6 +11,14 @@
         @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.User)
     </div>
+    @*<div class="form-group">
+        <label>Select Category</label>
+        Normal dropdown
+        @Html.DropDownListFor(model => model.SelectedCategoryIDs, new SelectList(Model.Category.Collection, "CategoryID", "Category"), new { id = "normalDropDown"})
+
+        @Html.LabelFor(model => model.Category, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "form-control" } })
+    </div>*@
     <div class="form-group">
         @Html.LabelFor(model => model.User, new { @class = "control-label" })
         @Html.EditorFor(model => model.User, new { htmlAttributes = new { @class = "form-control" } })
@@ -25,12 +33,12 @@
     </div>
     <div class="form-group">
         @Html.LabelFor(model => model.Status, new { @class = "control-label" })
-            @*<span class="input-group-addon">$</span>*@
+        @*<span class="input-group-addon">$</span>*@
         @Html.EditorFor(model => model.Status, new { htmlAttributes = new { @class = "form-control" } })
     </div>
-    
+
     <div class="form-group">
-        <input type="submit" value="Submit" class="btn btn-primary"  />
+        <input type="submit" value="Submit" class="btn btn-primary" />
         <input type="reset" value="Reset" class="btn" />
     </div>
 }
