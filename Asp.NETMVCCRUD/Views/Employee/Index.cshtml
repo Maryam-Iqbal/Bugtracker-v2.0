@@ -11,10 +11,13 @@
             <th>TicketID</th>
             <th>Title</th>
             <th>Category</th>
-            <th>User</th>
+            <th>Requester</th>
             <th>Priority</th>
             <th>Assign</th>
             <th>Status</th>
+            <th>Created</th>
+            <th>Due</th>
+            <th>Description</th>
             <th></th>
         </tr>
     </thead>
@@ -39,11 +42,14 @@
                 "columns": [
                     { "data": "TicketID" },
                     { "data": "Title" },
-                    { "data": "#" },
-                    { "data": "User" },
+                    { "data": "Category" },
+                    { "data": "Requester" },
                     { "data": "Priority" },
                     { "data": "Assign" },
                     { "data": "Status" },
+                    { "data": "Created" },
+                    { "data": "Due" },
+                    { "data": "Description" },
                     {"data":"TicketID" , "render" : function (data) {
                         return "<a class='btn btn-default btn-sm' onclick=PopupForm('@Url.Action("AddOrEdit","Employee")/" + data + "')><i class='fa fa-pencil'></i> Edit</a><a class='btn btn-danger btn-sm' style='margin-left:5px' onclick=Delete("+data+")><i class='fa fa-trash'></i> Delete</a>";
                     },

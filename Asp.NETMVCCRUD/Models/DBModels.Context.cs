@@ -25,6 +25,8 @@ namespace Asp.NETMVCCRUD.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<SelectedCategory> SelectedCategories { get; set; }
         public virtual DbSet<Ticket> Tickets { get; set; }
     }
 }

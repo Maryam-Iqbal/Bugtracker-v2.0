@@ -11,15 +11,18 @@ namespace Asp.NETMVCCRUD.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web.ModelBinding;
-
+    
     public partial class Ticket
     {
         public int TicketID { get; set; }
         public string Title { get; set; }
-        public string User { get; set; }
+        public string Category { get; set; }
+        public string Requester { get; set; }
         public string Priority { get; set; }
         public string Assign { get; set; }
         public string Status { get; set; }
+        public string Created { get; set; }
+        public string Due { get; set; }
+        public string Description { get; set; }
     }
 }

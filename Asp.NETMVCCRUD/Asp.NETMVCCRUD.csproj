@@ -153,16 +153,6 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Models\BugModels.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BugModels.edmx</DependentUpon>
-      <LastGenOutput>BugModels.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\BugModels.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BugModels.edmx</DependentUpon>
-      <LastGenOutput>BugModels.cs</LastGenOutput>
-    </Content>
     <Content Include="Models\DBModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>DBModels.edmx</DependentUpon>
@@ -182,13 +172,6 @@
     <Content Include="Models\DBModels.edmx.diagram">
       <DependentUpon>DBModels.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\BugModels.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BugModels.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\BugModels.edmx.diagram">
-      <DependentUpon>BugModels.edmx</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\chosen.jquery.min.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
@@ -201,7 +184,6 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\notify.min.js" />
-    <Content Include="Views\Category\AddorEdit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.12.4.min.map" />
     <Content Include="Views\_ViewStart.cshtml" />
@@ -211,28 +193,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\BugModels.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BugModels.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BugModels.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BugModels.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\BugModels.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BugModels.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs">
-      <DependentUpon>BugModels.tt</DependentUpon>
+      <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DBModels.Context.cs">
       <AutoGen>True</AutoGen>
@@ -250,7 +216,7 @@
       <DependentUpon>DBModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\SelectedCategory.cs">
-      <DependentUpon>BugModels.tt</DependentUpon>
+      <DependentUpon>DBModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Ticket.cs">
       <DependentUpon>DBModels.tt</DependentUpon>

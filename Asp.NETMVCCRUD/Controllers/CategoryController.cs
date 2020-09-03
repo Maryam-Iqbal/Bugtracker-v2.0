@@ -12,17 +12,17 @@ namespace Asp.NETMVCCRUD.Controllers
         // GET: Category
         public ActionResult AddorEdit(int id = 0)
         { 
-            SelectedCategory emp = new SelectedCategory();
-            using (BugModel db = new BugModel()) 
+             emp = new Ticket();
+            using (BugDBEntities db = new BugDBEntities()) 
             {
                 emp.CategoryCollection = db.Categories.ToList();
             }
             return View(emp);
         }
         [HttpPost]
-        public ActionResult AddorEdit(SelectedCategory emp)
+        public ActionResult AddorEdit(Ticket emp)
         {
-            using (BugModel db = new BugModel())
+            using (BugDBEntities db = new BugDBEntities())
             {
                 db.SelectedCategories.Add(emp);
                 db.SaveChanges();
