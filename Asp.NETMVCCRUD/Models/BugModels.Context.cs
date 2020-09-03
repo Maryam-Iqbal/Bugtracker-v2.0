@@ -13,10 +13,10 @@ namespace Asp.NETMVCCRUD.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class Models : DbContext
+    public partial class BugModel : DbContext
     {
-        public Models()
-            : base("name=Models")
+        public BugModel()
+            : base("name=BugModel")
         {
         }
     

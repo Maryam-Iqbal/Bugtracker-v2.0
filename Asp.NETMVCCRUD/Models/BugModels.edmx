@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BugDBModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ChosenBugModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -14,12 +14,12 @@
         </EntityType>
         <EntityType Name="SelectedCategory">
           <Key>
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CategoryName" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SelectedCategoryIDs" Type="varchar" MaxLength="50" />
         </EntityType>
-        <EntityContainer Name="BugDBModel1StoreContainer">
+        <EntityContainer Name="ChosenBugModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SelectedCategory" EntityType="Self.SelectedCategory" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -27,7 +27,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="BugDBModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ChosenBugModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -37,12 +37,12 @@
         </EntityType>
         <EntityType Name="SelectedCategory">
           <Key>
-            <PropertyRef Name="CategoryID" />
+            <PropertyRef Name="ID" />
           </Key>
-          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SelectedCategoryIDs" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="Models" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="BugModel" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="SelectedCategories" EntityType="Self.SelectedCategory" />
         </EntityContainer>
@@ -51,9 +51,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="BugDBModel1StoreContainer" CdmEntityContainer="Models">
+        <EntityContainerMapping StorageEntityContainer="ChosenBugModelStoreContainer" CdmEntityContainer="BugModel">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="BugDBModel1.Category">
+            <EntityTypeMapping TypeName="ChosenBugModel.Category">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
@@ -61,10 +61,10 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SelectedCategories">
-            <EntityTypeMapping TypeName="BugDBModel1.SelectedCategory">
+            <EntityTypeMapping TypeName="ChosenBugModel.SelectedCategory">
               <MappingFragment StoreEntitySet="SelectedCategory">
-                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
-                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SelectedCategoryIDs" ColumnName="SelectedCategoryIDs" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

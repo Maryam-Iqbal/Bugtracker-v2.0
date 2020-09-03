@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Asp.NETMVCCRUD.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,13 +11,23 @@ namespace Asp.NETMVCCRUD.Controllers
     {
         // GET: Category
         public ActionResult AddorEdit(int id = 0)
-        {
-            return View();
+        { 
+            SelectedCategory emp = new SelectedCategory();
+            using (BugModel db = new BugModel()) 
+            {
+                emp.CategoryCollection = db.Categories.ToList();
+            }
+            return View(emp);
         }
         [HttpPost]
-        public ActionResult AddorEdit()
+        public ActionResult AddorEdit(SelectedCategory emp)
         {
-            return View();
+            using (BugModel db = new BugModel())
+            {
+                db.SelectedCategories.Add(emp);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Employee", new { id = 0 });
         }
     }
 }
